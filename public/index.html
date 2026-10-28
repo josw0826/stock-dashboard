@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미국 주식 시세</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>미국 주식 시세</h1>
+      <p class="sub">현재가 · 등락률 · 거래량 · 전일 대비 거래량 변화</p>
+    </div>
+    <div class="status">
+      <span id="demo-badge" class="badge" hidden>데모 데이터</span>
+      <span id="updated">불러오는 중…</span>
+      <button id="refresh" type="button">새로고침</button>
+    </div>
+  </header>
+
+  <form id="add-form" class="add" autocomplete="off">
+    <input id="symbol-input" placeholder="종목 코드 추가 (예: AAPL)" maxlength="10" aria-label="종목 코드">
+    <button type="submit">추가</button>
+  </form>
+
+  <section class="summary" id="summary"></section>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="symbol">종목</th>
+          <th data-sort="price" class="num">현재가</th>
+          <th data-sort="changePct" class="num">등락률</th>
+          <th data-sort="volume" class="num">거래량</th>
+          <th data-sort="prevVolume" class="num">전일 거래량</th>
+          <th data-sort="volChangePct" class="num">거래량 증감</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <p class="note">
+    무료 API 데이터는 실시간이 아니라 지연 시세입니다. 투자 판단의 근거로 사용하지 마세요.
+  </p>
+
+  <script src="app.js"></script>
+</body>
+</html>
